@@ -13,7 +13,7 @@ RUN npm run build
 
 # ---- serve stage ----
 # Unprivileged nginx: runs as a non-root user (uid 101) and listens on 8080.
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+FROM nginxinc/nginx-unprivileged:1-alpine3.24
 # The browser calls /api/* ; nginx proxies that to the backend. BACKEND_URL is
 # substituted into the config at container start (envsubst), so the same image
 # works in docker-compose (http://backend:8000) and k8s (the backend Service).

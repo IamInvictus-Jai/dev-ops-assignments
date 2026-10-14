@@ -56,14 +56,14 @@ jobs:
           docker build -t $BACKEND_IMAGE:${{ github.sha }} ./trackmate/backend
           docker build -t $FRONTEND_IMAGE:${{ github.sha }} ./trackmate/frontend
       - name: Trivy scan — backend
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.BACKEND_IMAGE }}:${{ github.sha }}
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: "1"
       - name: Trivy scan — frontend
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
           severity: HIGH,CRITICAL

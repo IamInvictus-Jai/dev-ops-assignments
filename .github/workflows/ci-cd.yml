@@ -41,8 +41,8 @@ jobs:
       contents: read
       packages: write
     env:
-      BACKEND_IMAGE: ghcr.io/${{ github.repository_owner }}/trackmate-backend
-      FRONTEND_IMAGE: ghcr.io/${{ github.repository_owner }}/trackmate-frontend
+      BACKEND_IMAGE: ghcr.io/iaminvictus-jai/trackmate-backend
+      FRONTEND_IMAGE: ghcr.io/iaminvictus-jai/trackmate-frontend
     steps:
       - uses: actions/checkout@v4
       - name: Log in to GHCR
@@ -93,7 +93,7 @@ jobs:
         run: |
           helm upgrade --install trackmate ./trackmate/helm/trackmate \
             -n trackmate --create-namespace \
-            --set backend.image=ghcr.io/${{ github.repository_owner }}/trackmate-backend \
+            --set backend.image=ghcr.io/iaminvictus-jai/trackmate-backend \
             --set backend.tag=${{ github.sha }} \
-            --set frontend.image=ghcr.io/${{ github.repository_owner }}/trackmate-frontend \
+            --set frontend.image=ghcr.io/iaminvictus-jai/trackmate-frontend \
             --set frontend.tag=${{ github.sha }}
